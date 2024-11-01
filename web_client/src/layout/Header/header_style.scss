@@ -1,0 +1,63 @@
+.header-link-menu {
+    @apply relative;
+
+    &:hover {
+        .header-box-menu {
+            @apply visible;
+        }
+    }
+
+    &::after {
+        content: '';
+        @apply w-full
+        absolute
+        top-full
+        left-0;
+    }
+
+    .header-box-menu {
+        @apply invisible 
+        w-auto h-auto 
+        absolute top-12 left-0 
+        rounded-md 
+        overflow-hidden 
+        shadow-2xl;
+
+        .header-box-menu-link {
+            @apply block 
+            w-72 
+            py-2 px-4 
+            text-black text-sm font-medium 
+            bg-white 
+            border-gray-200 border-solid 
+            hover:text-[var(--color-primary)];
+        }
+    }
+}
+
+.header-link {
+    @apply relative;
+    &:hover {
+        &::after {
+            content: '';
+
+            @apply w-1/2
+        h-[2px]
+        bg-red-500
+        absolute
+        bottom-3
+        left-1/2
+        -translate-x-1/2;
+            animation: ChangeWidth 0.5s infinite alternate;
+        }
+    }
+}
+
+@keyframes ChangeWidth {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 80%;
+    }
+}
