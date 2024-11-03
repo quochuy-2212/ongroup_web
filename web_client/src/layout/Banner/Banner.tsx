@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import IntroCompany from '@/app/(page)/(home)/components/IntroCompany';
+import IntroCompany from '@/layout/IntroCompany/IntroCompany';
 
 import Header from '@/layout/Header/Header';
 
