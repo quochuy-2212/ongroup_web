@@ -1,5 +1,5 @@
-import Menu from '@/components/Menu/Menu';
-import Search from '@/components/Search/Search';
+import Menu from '@/layout/Menu/Menu';
+import Search from '@/layout/Search/Search';
 import useMenuStore from '@/zustand/useMenuStore';
 import React from 'react';
 import { FaBars } from 'react-icons/fa';

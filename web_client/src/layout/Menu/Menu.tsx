@@ -22,7 +22,7 @@ const Menu = () => {
         >
             <AiOutlineClose
                 size={40}
-                className="absolute top-4 left-4 hover:rotate-180 font-bold text-white hover:text-red-600 cursor-pointer transition-all duration-500"
+                className="absolute top-4 left-4 hover:rotate-180 font-bold text-white hover:text-[var(--color-primary)] cursor-pointer transition-all duration-500"
                 onClick={() => toggleMenu()}
             />
             <ul className="w-full flex flex-col justify-center items-start gap-y-10 flex-wrap px-28">
@@ -39,7 +39,7 @@ const Menu = () => {
                                     <Link
                                         href={header_item.href}
                                         className={`w-full border-l-2 hover:border-l-0 hover:border-b-2 border-solid border-[var(--color-primary)] font-black p-3
-                                            ${activeId === header_item.href ? 'text-red-600' : ''}`}
+                                            ${activeId === header_item.href ? 'text-[var(--color-primary)]' : ''}`}
                                     >
                                         {header_item.text}
                                     </Link>
@@ -50,14 +50,14 @@ const Menu = () => {
                                                 data-id={header_item.href}
                                                 onClick={() => handleClickMenu(header_item.href)}
                                                 size={36}
-                                                className="hover:rotate-[360deg] font-bold text-white hover:text-red-600 cursor-pointer transition-all duration-700"
+                                                className="hover:rotate-[360deg] font-bold text-white hover:text-[var(--color-primary)] cursor-pointer transition-all duration-700"
                                             />
                                         ) : (
                                             <FaAngleDown
                                                 data-id={header_item.href}
                                                 onClick={() => handleClickMenu(header_item.href)}
                                                 size={36}
-                                                className="hover:rotate-[360deg] font-bold text-white hover:text-red-600 cursor-pointer transition-all duration-700"
+                                                className="hover:rotate-[360deg] font-bold text-white hover:text-[var(--color-primary)] cursor-pointer transition-all duration-700"
                                             />
                                         ))}
                                 </p>

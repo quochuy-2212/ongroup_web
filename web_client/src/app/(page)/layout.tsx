@@ -1,4 +1,4 @@
-import Banner from '@/components/Banner/Banner';
+import Banner from '@/layout/Banner/Banner';
 
 export default function LayoutPage({
     children,
