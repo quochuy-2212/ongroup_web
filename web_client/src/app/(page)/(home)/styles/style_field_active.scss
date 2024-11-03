@@ -1,0 +1,33 @@
+@keyframes slide-in {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+.background-effect {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-primary);
+    animation: slide-out 0.7s forwards;
+    z-index: 0;
+}
+
+.group:hover .background-effect {
+    animation: slide-in 0.7s forwards;
+}
+
+.group:not(:hover) .background-effect {
+    animation: slide-out 0.7s forwards;
+}
