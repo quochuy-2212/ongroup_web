@@ -24,8 +24,8 @@ export interface IMemberCompany {
     text: string;
 }
 
-export interface IHeader {
+export interface IMenu {
     href: string;
     text: string;
-    menu?: IHeader[];
+    menu_sub: IMenu[];
 }
