@@ -6,7 +6,7 @@ import '../styles/style_field_active.scss';
 
 const FieldActive = () => {
     return (
-        <div className="container m-auto py-16">
+        <div className="container m-auto pt-16">
             <div className="text-center space-y-5">
                 <h2 className="text-3xl text-[var(--color-primary)] uppercase font-black">lĩnh vực hoạt động</h2>
                 <p className="px-24">
@@ -16,9 +16,9 @@ const FieldActive = () => {
                 </p>
             </div>
             <div className="pt-5">
-                <SlickSlider slidesToScroll={3} slidesToShow={3} speed={500} dots={true}>
+                <SlickSlider slidesToScroll={3} slidesToShow={3} speed={1000} dots={true}>
                     {field_active_data?.map((field_item) => (
-                        <div key={field_item.title} className="p-4 ">
+                        <div key={field_item.title} className="p-4 cursor-pointer">
                             <div className="group relative overflow-hidden space-y-3 p-4 hover:shadow-lg rounded-md">
                                 {/* Background Effect */}
                                 <div className="background-effect"></div>

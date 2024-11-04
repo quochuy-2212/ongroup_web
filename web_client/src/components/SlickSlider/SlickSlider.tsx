@@ -10,6 +10,8 @@ interface IProp {
     speed: number;
     infinite?: boolean;
     dots?: boolean;
+    arrows?: boolean;
+    autoplay?: boolean;
     children: React.ReactNode;
 }
 
@@ -19,6 +21,8 @@ const SlickSlider: React.FC<IProp> = ({
     speed,
     infinite = true,
     dots = true,
+    arrows = true,
+    autoplay = true,
     children,
 }) => {
     const settings = {
@@ -27,6 +31,9 @@ const SlickSlider: React.FC<IProp> = ({
         speed: speed,
         slidesToShow: slidesToShow,
         slidesToScroll: slidesToScroll,
+        arrows: arrows,
+        autoplay: autoplay, // Bật autoplay
+        autoplaySpeed: 5000,
     };
 
     return (
