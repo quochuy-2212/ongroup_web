@@ -31,3 +31,37 @@
 .group:not(:hover) .background-effect {
     animation: slide-out 0.7s forwards;
 }
+
+@keyframes slide-in-up {
+    0% {
+        transform: translateY(100%); /* Bắt đầu từ dưới */
+    }
+    100% {
+        transform: translateY(0); /* Kết thúc tại vị trí gốc */
+    }
+}
+
+@keyframes slide-out-down {
+    0% {
+        transform: translateY(0); /* Bắt đầu từ vị trí gốc */
+    }
+    100% {
+        transform: translateY(100%); /* Kết thúc ở dưới */
+    }
+}
+
+.background-effect-news {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-primary);
+    animation: slide-out-down 0.5s forwards; /* Sử dụng hiệu ứng slide-out-down */
+    z-index: 0;
+}
+
+.group:hover .background-effect-news {
+    animation: slide-in-up 0.5s forwards; /* Sử dụng hiệu ứng slide-in-up khi hover */
+}
+
+.group:not(:hover) .background-effect-news {
+    animation: slide-out-down 0.5s forwards; /* Sử dụng hiệu ứng slide-out-down khi không hover */
+}
