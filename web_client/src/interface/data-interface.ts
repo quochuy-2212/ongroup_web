@@ -12,6 +12,7 @@ export interface IFieldActives {
 }
 
 export interface IPosts {
+    id: string;
     image: string;
     title: string;
     date: string;
