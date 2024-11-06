@@ -16,20 +16,21 @@
     }
 }
 
-.background-effect {
-    position: absolute;
-    inset: 0;
-    background-color: var(--color-primary);
-    animation: slide-out 0.7s forwards;
-    z-index: 0;
-}
+@media (min-width: 1024px) {
+    .background-effect {
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-primary);
+        animation: slide-out 0.7s forwards;
+        z-index: 0;
+    }
+    .group:hover .background-effect {
+        animation: slide-in 0.7s forwards;
+    }
 
-.group:hover .background-effect {
-    animation: slide-in 0.7s forwards;
-}
-
-.group:not(:hover) .background-effect {
-    animation: slide-out 0.7s forwards;
+    .group:not(:hover) .background-effect {
+        animation: slide-out 0.7s forwards;
+    }
 }
 
 @keyframes slide-in-up {
@@ -58,10 +59,12 @@
     z-index: 0;
 }
 
-.group:hover .background-effect-news {
-    animation: slide-in-up 0.5s forwards; /* Sử dụng hiệu ứng slide-in-up khi hover */
-}
+@media (min-width: 1024px) {
+    .group:hover .background-effect-news {
+        animation: slide-in-up 0.5s forwards; /* Sử dụng hiệu ứng slide-in-up khi hover */
+    }
 
-.group:not(:hover) .background-effect-news {
-    animation: slide-out-down 0.5s forwards; /* Sử dụng hiệu ứng slide-out-down khi không hover */
+    .group:not(:hover) .background-effect-news {
+        animation: slide-out-down 0.5s forwards; /* Sử dụng hiệu ứng slide-out-down khi không hover */
+    }
 }

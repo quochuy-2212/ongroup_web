@@ -1,19 +1,20 @@
+import Button from '@/components/Button/Button';
 import ImageTag from '@/components/ImageTag/ImageTag';
 import SlickSlider from '@/components/SlickSlider/SlickSlider';
 import { member_company_data } from '@/data/member-company';
-import Link from 'next/link';
 import React from 'react';
+import Title from './Title';
 
 const CompanyNumber = () => {
     return (
-        <div className="space-y-5 pt-16">
+        <div className="space-y-5 pt-16 container m-auto">
             <div className="text-center flex flex-col gap-5">
-                <h2 className="text-3xl text-[var(--color-primary)] uppercase font-black pt-4">Công ty thành viên</h2>
-                <p className="px-64">
-                    Tập đoàn On Group hoạt động đa dạng với 08 thương hiệu Công ty thành viên, lần lượt là …. Tham gia
+                <Title
+                    title="Công ty thành viên"
+                    sub_title=" Tập đoàn On Group hoạt động đa dạng với 08 thương hiệu Công ty thành viên, lần lượt là …. Tham gia
                     vào 6 lĩnh vực kinh doanh chủ đạo bao gồm Truyền thông, Đào tạo, Bất động sản, FnB, Tài chính và
-                    Truyền thông.
-                </p>
+                    Truyền thông."
+                />
             </div>
 
             <div className="">
@@ -37,12 +38,9 @@ const CompanyNumber = () => {
                 </SlickSlider>
             </div>
             <div className="text-center">
-                <Link
-                    href="/"
-                    className="text-[var(--color-primary)] italic underline hover:scale-110 hover:font-bold transition-transform duration-300"
-                >
+                <Button href="" type="transparent">
                     Xem thêm
-                </Link>
+                </Button>
             </div>
         </div>
     );

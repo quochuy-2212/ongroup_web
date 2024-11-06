@@ -8,9 +8,14 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaRegClock } from 'react-icons/fa';
 import '../styles/style_field_active.scss';
+import Button from '@/components/Button/Button';
+import Title from './Title';
+import useWindowSize from '@/hooks/useWindowSize';
+import SlickSlider from '@/components/SlickSlider/SlickSlider';
 
 const NewsEvent = () => {
     const [tagCurrent, setTagCurrent] = useState<number>(1);
+    const { width } = useWindowSize();
 
     const postsData = [
         posts_member_company_data.slice(0, 5),
@@ -21,101 +26,105 @@ const NewsEvent = () => {
 
     return (
         <div className="container m-auto pt-16 overflow-hidden space-y-5">
-            <h2 className="text-3xl text-[var(--color-primary)] uppercase font-black">tin tức & sự kiện</h2>
-            <ul className="flex gap-10 mb-4 border-b-2 border-[var(--color-primary)] border-solid py-4">
-                {['Công ty thành viên', 'On Group', 'Thông tin báo chí', 'Hợp tác - Tài trợ'].map((label, index) => (
-                    <li
-                        key={index}
-                        onClick={() => setTagCurrent(index + 1)}
-                        className={`cursor-pointer hover:text-[var(--color-primary)] ${
-                            tagCurrent === index + 1 ? 'text-[var(--color-primary)] font-bold ' : ''
-                        }`}
-                    >
-                        {label}
-                    </li>
-                ))}
-            </ul>
+            <Title title="tin tức & sự kiện" />
+            <Button href="" type="transparent" className="flex items-center justify-center">
+                Xem thêm
+            </Button>
+            <div className=" border-b-2 border-[var(--color-primary)] border-solid">
+                <ul className="flex gap-4 xl:gap-10 py-4 flex-wrap md:justify-center xl:justify-start">
+                    {['Công ty thành viên', 'On Group', 'Thông tin báo chí', 'Hợp tác - Tài trợ'].map(
+                        (label, index) => (
+                            <li
+                                key={index}
+                                onClick={() => setTagCurrent(index + 1)}
+                                className={`cursor-pointer hover:text-[var(--color-primary)] ${
+                                    tagCurrent === index + 1 ? 'text-[var(--color-primary)] font-bold ' : ''
+                                }`}
+                            >
+                                {label}
+                            </li>
+                        ),
+                    )}
+                </ul>
+            </div>
 
-            {/* Slider container */}
-            <div
-                className=" flex transition-transform duration-700 ease-in-out"
-                style={{
-                    transform: `translateX(-${(tagCurrent - 1) * 80}vw)`,
-                    width: `${postsData.length * 80}vw`,
-                }}
-            >
-                {postsData.map((posts, idx) => (
-                    <div key={idx} className="flex flex-col gap-5">
-                        <div key={posts[0].id} className="w-full flex gap-5 px-4">
-                            <Link href="/" className="overflow-hidden rounded-md w-full">
-                                <ImageTag
-                                    src={posts[0].image}
-                                    alt="img-post"
-                                    height={600}
-                                    width={900}
-                                    className=" hover:scale-125 transition-all duration-500"
-                                />
-                            </Link>
-                            <div className="flex flex-col gap-5">
-                                <Link href="/" className="line-clamp-2 font-bold text-2xl">
-                                    {posts[0].title}
-                                </Link>
-                                <p className="flex gap-2 items-center text-[var(--text-color-date)] opacity-80">
-                                    <FaRegClock />
-                                    <span> {posts[0].date}</span>
-                                </p>
-                                <p className="line-clamp-3 text-[var(--text-color-subtext)]">{posts[0].sub_title}</p>
-                                <Link
-                                    href="/"
-                                    className="w-1/5 p-2 text-center text-white rounded-md font-bold bg-[var(--color-primary)] 
-                                    hover:border-2 border-[var(--color-primary)] border-solid hover:bg-white hover:text-[var(--color-primary)]"
-                                >
-                                    Xem chi tiết
-                                </Link>
+            {/* Begin Slider post desktop */}
+            {width >= 1023 && (
+                <div
+                    className=" flex transition-transform duration-700 ease-in-out"
+                    style={{
+                        transform: `translateX(-${(tagCurrent - 1) * 100}vw)`,
+                        width: `${postsData.length * 100}vw`,
+                    }}
+                >
+                    {postsData.map((posts, idx) => (
+                        <div key={idx} className="flex flex-col gap-5">
+                            <div className="flex gap-5 w-full p-4">
+                                {posts.map((post) => (
+                                    <div
+                                        key={post.id}
+                                        className="group relative overflow-hidden space-y-2 shadow-lg rounded-md cursor-pointer "
+                                    >
+                                        <div className="background-effect-news"></div>
+                                        <Link href="/" className="relative">
+                                            <ImageTag src={post.image} alt="img-post" className="rounded-t-md" />
+                                        </Link>
+
+                                        <div className="relative px-8 pb-8 pt-4 rounded-b-md space-y-5 z-10">
+                                            <Link
+                                                href="/"
+                                                className="xl:group-hover:text-white leading-8 line-clamp-2 font-bold text-base"
+                                            >
+                                                {post.title}
+                                            </Link>
+                                            <p className="flex gap-2 items-center text-[var(--text-color-date)] text-sm opacity-80">
+                                                <FaRegClock />
+                                                <span> {post.date}</span>
+                                            </p>
+                                            <p className="group-hover:text-white leading-8 line-clamp-3 text-[var(--text-color-subtext)] text-base transition-all duration-700">
+                                                {post.sub_title}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
+                    ))}
+                </div>
+            )}
+            {/* End Slider post desktop */}
 
-                        <div className="flex gap-5 w-full p-4">
-                            {posts.map((post) => (
-                                <div
-                                    key={post.id}
-                                    className="group relative overflow-hidden space-y-2 shadow-lg rounded-md cursor-pointer "
-                                >
-                                    <div className="background-effect-news"></div>
-                                    <Link href="/" className="relative">
-                                        <ImageTag src={post.image} alt="img-post" className="rounded-t-md" />
-                                    </Link>
-
-                                    <div className="relative p-2 rounded-b-md space-y-2 z-10">
-                                        <Link
-                                            href="/"
-                                            className="group-hover:text-white line-clamp-2 font-bold text-base"
-                                        >
-                                            {post.title}
-                                        </Link>
-                                        <p className="flex gap-2 items-center text-[var(--text-color-date)] text-sm opacity-80">
-                                            <FaRegClock />
-                                            <span> {post.date}</span>
-                                        </p>
-                                        <p className="group-hover:text-white line-clamp-3 text-[var(--text-color-subtext)] text-base transition-all duration-700">
-                                            {post.sub_title}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="pb-4 px-4 text-right">
-                            <Link
-                                href="/"
-                                className="w-1/5 p-2 text-center text-white rounded-md font-bold bg-[var(--color-primary)] 
-                                    hover:border-2 border-[var(--color-primary)] border-solid hover:bg-white hover:text-[var(--color-primary)]"
+            {/* Begin Slider post mobile + tablet */}
+            {width < 1023 && (
+                <div className="">
+                    <SlickSlider slidesToScroll={5} slidesToShow={5} speed={1000} arrows={false} dots={false}>
+                        {postsData[tagCurrent - 1].slice(0, 2).map((post) => (
+                            <div
+                                key={post.id}
+                                className="  overflow-hidden space-x-2 shadow-lg rounded-md cursor-pointer p-4"
                             >
-                                Xem thêm
-                            </Link>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                                <Link href="/" className="">
+                                    <ImageTag src={post.image} alt="img-post" className="rounded-t-md" />
+                                </Link>
+
+                                <div className=" px-8 pb-8 pt-4 rounded-b-md space-y-5 z-10">
+                                    <Link href="/" className=" leading-8 line-clamp-2 font-bold text-base">
+                                        {post.title}
+                                    </Link>
+                                    <p className="flex gap-2 items-center text-[var(--text-color-date)] text-sm opacity-80">
+                                        <FaRegClock />
+                                        <span> {post.date}</span>
+                                    </p>
+                                    <p className=" leading-8 line-clamp-3 text-[var(--text-color-subtext)] text-base transition-all duration-700">
+                                        {post.sub_title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </SlickSlider>
+                </div>
+            )}
+            {/* End Slider post mobile + tablet*/}
         </div>
     );
 };

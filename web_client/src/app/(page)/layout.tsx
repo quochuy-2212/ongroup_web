@@ -1,4 +1,6 @@
+import ButtonToTop from '@/components/ButtonToTop/ButtonToTop';
 import Banner from '@/layout/Banner/Banner';
+import Footer from '@/layout/Footer/Footer';
 
 export default function LayoutPage({
     children,
@@ -9,6 +11,8 @@ export default function LayoutPage({
         <>
             <Banner />
             <main className="px-2 xl:px-0">{children}</main>
+            <ButtonToTop />
+            <Footer />
         </>
     );
 }

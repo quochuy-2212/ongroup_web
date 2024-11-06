@@ -1,17 +1,37 @@
 'use client';
 import { menu_data } from '@/data/menu';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaAngleDown, FaAngleUp, FaPlus } from 'react-icons/fa';
 import useMenuStore from '@/zustand/useMenuStore';
 import Search from '../Search/Search';
 import useScrollPosition from '@/hooks/useScrollPosition';
+import useWindowSize from '@/hooks/useWindowSize';
 
 const Menu = () => {
     const [activeId, setActiveId] = useState<string | null>(null);
     const { isMenuOpen, toggleMenu } = useMenuStore();
     const { scrollY } = useScrollPosition();
+    const { width } = useWindowSize();
+
+    useEffect(() => {
+        const className = 'menu-sm-open';
+        const bodyClassList = document.body.classList;
+
+        if (width <= 1022) {
+            if (isMenuOpen && !bodyClassList.contains(className)) {
+                bodyClassList.add(className);
+            } else if (!isMenuOpen && bodyClassList.contains(className)) {
+                bodyClassList.remove(className);
+            }
+        }
+
+        // Cleanup khi component unmount
+        return () => {
+            bodyClassList.remove(className);
+        };
+    }, [isMenuOpen]);
 
     const handleClickMenu = (id: string) => {
         setActiveId((prevId) => (prevId === id ? null : id));
@@ -21,7 +41,7 @@ const Menu = () => {
         <div
             className={`${
                 isMenuOpen ? 'opacity-100' : '-translate-x-full opacity-0'
-            } fixed top-0 left-0 z-50 h-screen bg-black/90 transition-all duration-500 w-1/4 pr-4 flex flex-col gap-16`}
+            } fixed top-0 left-0 z-50 h-full xl:h-screen bg-black xl:bg-black/90  transition-all duration-500 w-full xl:w-1/4 pr-4 flex flex-col gap-16`}
         >
             <div className="flex justify-between p-4">
                 <AiOutlineClose
@@ -29,9 +49,9 @@ const Menu = () => {
                     className=" hover:rotate-180 font-bold text-white hover:text-[var(--color-primary)] cursor-pointer transition-transform duration-500"
                     onClick={() => toggleMenu()}
                 />
-                {scrollY > 600 && <Search />}
+                {scrollY > 600 && width >= 1023 && <Search />}
             </div>
-            <ul className="w-full flex flex-col justify-center items-start gap-y-10 flex-wrap px-4">
+            <ul className="w-full flex flex-col justify-center items-start gap-y-20 xl:gap-y-10 flex-wrap px-4">
                 {menu_data?.map((header_item) => (
                     <li key={header_item.href} className="text-lg text-[var(--text-color-secondary)] w-full">
                         <div className="w-full flex items-center gap-2 relative">
@@ -66,7 +86,7 @@ const Menu = () => {
                                     )}
                                 </p>
                                 <div
-                                    className={`overflow-hidden flex flex-col px-5 gap-3 transition-all duration-500 ease-in-out ${
+                                    className={`overflow-hidden flex flex-col px-5 gap-9 xl:gap-3 transition-all duration-500 ease-in-out ${
                                         activeId === header_item.href ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
                                     }`}
                                 >
