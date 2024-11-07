@@ -15,20 +15,15 @@ const NewsEvent = () => {
     const [tagCurrent, setTagCurrent] = useState<number>(1);
     const { width } = useWindowSize();
 
-    const postsData = [
-        posts_member_company_data.slice(0, 5),
-        posts_ongroup_data.slice(0, 5),
-        posts_info_press_data.slice(0, 5),
-        posts_coop_sponsor_data.slice(0, 5),
-    ];
+    const postsData = [posts_member_company_data, posts_ongroup_data, posts_info_press_data, posts_coop_sponsor_data];
 
     return (
-        <div className="container m-auto pt-16 overflow-hidden space-y-5">
+        <div className="container m-auto pt-16 overflow-hidden space-y-5 pb-8">
             <Title title="tin tức & sự kiện" />
-            <Button href="" type="transparent" className="flex items-center justify-center">
+            <Button href="" type="transparent" className="flex xl:hidden items-center justify-center">
                 Xem thêm
             </Button>
-            <div className=" border-b-2 border-[var(--color-primary)] border-solid">
+            <div className="xl:flex xl:justify-between xl:items-center border-b-2 border-[var(--color-primary)] border-solid">
                 <ul className="flex gap-4 xl:gap-10 py-4 flex-wrap md:justify-center xl:justify-start">
                     {['Công ty thành viên', 'On Group', 'Thông tin báo chí', 'Hợp tác - Tài trợ'].map(
                         (label, index) => (
@@ -44,6 +39,9 @@ const NewsEvent = () => {
                         ),
                     )}
                 </ul>
+                <Button href="" type="transparent" className="xl:flex hidden items-center justify-center">
+                    Xem thêm
+                </Button>
             </div>
 
             {/* Begin Slider post desktop */}
@@ -71,8 +69,8 @@ const NewsEvent = () => {
             {/* Begin Slider post mobile + tablet */}
             {width < 1023 && (
                 <div className="">
-                    <SlickSlider slidesToScroll={5} slidesToShow={5} speed={1000} arrows={false} dots={false}>
-                        {postsData[tagCurrent - 1].slice(0, 2).map((post) => (
+                    <SlickSlider slidesToScroll={5} slidesToShow={5} speed={1000} arrows={false} dots={true}>
+                        {postsData[tagCurrent - 1].map((post) => (
                             <Post key={post.id} data_post={post} />
                         ))}
                     </SlickSlider>

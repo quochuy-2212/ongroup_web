@@ -25,7 +25,7 @@ const SlickSlider: React.FC<IProp> = ({
     slidesToShow,
     slidesToShow_sm = 1,
     slidesToScroll_sm = 1,
-    slidesToShow_md = 2,
+    slidesToShow_md = 1,
     slidesToScroll_md = 2,
     speed,
     infinite = true,

@@ -21,6 +21,26 @@ const nextConfig = {
         destination: '/member-company'
 
       },
+      {
+        source: '/phat-trien-ben-vung',
+        destination: '/sustain-develop'
+
+      },
+      {
+        source: '/van-hoa-doanh-nghiep',
+        destination: '/company-culture'
+
+      },
+      {
+        source: '/chien-luoc-nhan-su',
+        destination: '/hr-strategy '
+
+      },
+      {
+        source: '/cong-dong-xa-hoi',
+        destination: '/social-impact'
+
+      },
     ]
   }
 };

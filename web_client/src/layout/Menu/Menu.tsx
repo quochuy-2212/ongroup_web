@@ -58,6 +58,7 @@ const Menu = () => {
                             <div className="w-full space-y-3">
                                 <p className="w-full flex gap-2 items-center">
                                     <Link
+                                        onClick={() => toggleMenu()}
                                         href={header_item.href}
                                         className={`w-full border-l-4 hover:border-l-0 hover:border-b-2 border-solid border-[var(--color-primary)] font-black p-3 transition-colors duration-300
                                             ${activeId === header_item.href ? 'text-[var(--color-primary)]' : ''}`}
@@ -92,6 +93,7 @@ const Menu = () => {
                                 >
                                     {header_item?.menu_sub.map((menuItem) => (
                                         <Link
+                                            onClick={() => toggleMenu()}
                                             key={menuItem.href}
                                             href={menuItem.href}
                                             className="hover:text-[var(--color-primary)] flex gap-3 items-center"
