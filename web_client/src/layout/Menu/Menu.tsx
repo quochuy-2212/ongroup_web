@@ -31,7 +31,7 @@ const Menu = () => {
         return () => {
             bodyClassList.remove(className);
         };
-    }, [isMenuOpen]);
+    }, [isMenuOpen, width]);
 
     const handleClickMenu = (id: string) => {
         setActiveId((prevId) => (prevId === id ? null : id));
