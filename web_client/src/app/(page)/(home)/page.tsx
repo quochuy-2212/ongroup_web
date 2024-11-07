@@ -3,7 +3,7 @@ import EnvirOngroup from './components/EnvirOngroup';
 import FieldActive from './components/FieldActive';
 import NewsEvent from './components/NewsEvent';
 
-export default function Home() {
+export default function HomePage() {
     return (
         <div className="">
             <FieldActive />

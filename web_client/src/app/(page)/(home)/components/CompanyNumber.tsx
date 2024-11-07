@@ -1,21 +1,19 @@
 import Button from '@/components/Button/Button';
 import ImageTag from '@/components/ImageTag/ImageTag';
 import SlickSlider from '@/components/SlickSlider/SlickSlider';
+import Title from '@/components/Title';
 import { member_company_data } from '@/data/member-company';
 import React from 'react';
-import Title from './Title';
 
 const CompanyNumber = () => {
     return (
         <div className="space-y-5 pt-16 container m-auto">
-            <div className="text-center flex flex-col gap-5">
-                <Title
-                    title="Công ty thành viên"
-                    sub_title=" Tập đoàn On Group hoạt động đa dạng với 08 thương hiệu Công ty thành viên, lần lượt là …. Tham gia
+            <Title
+                title="Công ty thành viên"
+                sub_title=" Tập đoàn On Group hoạt động đa dạng với 08 thương hiệu Công ty thành viên, lần lượt là …. Tham gia
                     vào 6 lĩnh vực kinh doanh chủ đạo bao gồm Truyền thông, Đào tạo, Bất động sản, FnB, Tài chính và
                     Truyền thông."
-                />
-            </div>
+            />
 
             <div className="">
                 <SlickSlider slidesToScroll={4} slidesToShow={4} speed={1000} arrows={false} dots={false}>
@@ -38,7 +36,7 @@ const CompanyNumber = () => {
                 </SlickSlider>
             </div>
             <div className="text-center">
-                <Button href="" type="transparent">
+                <Button href="/cong-ty-thanh-vien" type="transparent">
                     Xem thêm
                 </Button>
             </div>

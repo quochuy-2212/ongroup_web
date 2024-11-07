@@ -3,19 +3,18 @@ import SlickSlider from '@/components/SlickSlider/SlickSlider';
 import { field_active_data } from '@/data/field-active';
 import React from 'react';
 import '../styles/style_field_active.scss';
-import Title from './Title';
+import Title from '@/components/Title';
 
 const FieldActive = () => {
     return (
-        <div className="container m-auto pt-16">
-            <div className="text-center space-y-5">
-                <Title
-                    title=" lĩnh vực hoạt động"
-                    sub_title=" Với thể mạnh là Công Nghệ và Marketing, Ongroup đã phát triển hệ sinh thái đa lĩnh vực, thực tế áp
+        <div className="container m-auto">
+            <Title
+                title=" lĩnh vực hoạt động"
+                sub_title=" Với thể mạnh là Công Nghệ và Marketing, Ongroup đã phát triển hệ sinh thái đa lĩnh vực, thực tế áp
                     dụng hiệu quả và giúp hàng trăm doanh nghiệp quay trở lại thương trường với chiến lược hiệu quả, quy
                     trình tinh gọn nhờ có sự cộng hưởng trong môi trường hệ sinh thái."
-                />
-            </div>
+            />
+
             <div className="pt-5">
                 <SlickSlider slidesToScroll={3} slidesToShow={3} speed={1000} dots={true} arrows={false}>
                     {field_active_data?.map((field_item) => (

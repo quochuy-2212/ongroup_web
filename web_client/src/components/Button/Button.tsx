@@ -4,7 +4,7 @@ import React from 'react';
 interface IProp {
     children: React.ReactNode | string;
     type: string;
-    href?: '';
+    href?: string;
     onClick?: () => void;
     className?: string;
 }

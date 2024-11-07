@@ -1,6 +1,7 @@
 import Button from '@/components/Button/Button';
 import ImageTag from '@/components/ImageTag/ImageTag';
 import { intro_company_data } from '@/data/intro-company';
+import Link from 'next/link';
 import { FaAngleDoubleDown } from 'react-icons/fa';
 
 const IntroCompany = () => {
@@ -15,7 +16,7 @@ const IntroCompany = () => {
             <p className="hidden md:block text-[var(--text-color-secondary)] text-xl md:leading-10 xl:leading-[80px]">
                 {intro_company_data.description}
             </p>
-            <div className="flex justify-center">
+            <Link href="/" className="flex justify-center">
                 <ImageTag
                     src={intro_company_data.logo}
                     alt="logo-company"
@@ -23,7 +24,7 @@ const IntroCompany = () => {
                     height={107}
                     className="bg-white p-4 w-64 rounded-2xl"
                 />
-            </div>
+            </Link>
             <div className="flex gap-10 justify-center">
                 <Button href="" type="primary" className="min-w-48 border-none">
                     Về chúng tôi

@@ -81,8 +81,8 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-12 space-y-5">
-                    <div className="col-span-12 xl:col-span-12 flex gap-2 items-center">
+                <div className="grid grid-cols-12 space-y-5 xl:space-y-0 xl:gap-5">
+                    <div className="col-span-12 xl:col-span-8 flex gap-2 items-center">
                         <div className="bg-[var(--color-primary)] text-white rounded-full p-1">
                             <HiOutlineLocationMarker />
                         </div>

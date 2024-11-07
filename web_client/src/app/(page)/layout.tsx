@@ -10,7 +10,7 @@ export default function LayoutPage({
     return (
         <>
             <Banner />
-            <main className="px-2 xl:px-0">{children}</main>
+            <main className="px-2 xl:px-0 pt-16">{children}</main>
             <ButtonToTop />
             <Footer />
         </>
