@@ -1,8 +1,8 @@
+@tailwind utilities;
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
 
 :root {
     --color-primary: #1159da;
@@ -13,7 +13,7 @@
 }
 
 body {
-    font-family: 'Nunito', 'Quicksand', sans-serif;
+    font-family: 'Montserrat', 'Nunito', 'Quicksand', sans-serif;
     padding: 0 !important;
     background-size: cover;
     font-optical-sizing: auto;
@@ -21,4 +21,75 @@ body {
 
 body.menu-sm-open {
     overflow: hidden;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@media (min-width: 1024px) {
+    .background-effect {
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-primary);
+        animation: slide-out 0.7s forwards;
+        z-index: 0;
+    }
+    .group:hover .background-effect {
+        animation: slide-in 0.7s forwards;
+    }
+
+    .group:not(:hover) .background-effect {
+        animation: slide-out 0.7s forwards;
+    }
+}
+
+@keyframes slide-in-up {
+    0% {
+        transform: translateY(100%); /* Bắt đầu từ dưới */
+    }
+    100% {
+        transform: translateY(0); /* Kết thúc tại vị trí gốc */
+    }
+}
+
+@keyframes slide-out-down {
+    0% {
+        transform: translateY(0); /* Bắt đầu từ vị trí gốc */
+    }
+    100% {
+        transform: translateY(100%); /* Kết thúc ở dưới */
+    }
+}
+
+.background-effect-news {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-primary);
+    animation: slide-out-down 0.5s forwards; /* Sử dụng hiệu ứng slide-out-down */
+    z-index: 0;
+}
+
+@media (min-width: 1024px) {
+    .group:hover .background-effect-news {
+        animation: slide-in-up 0.5s forwards; /* Sử dụng hiệu ứng slide-in-up khi hover */
+    }
+
+    .group:not(:hover) .background-effect-news {
+        animation: slide-out-down 0.5s forwards; /* Sử dụng hiệu ứng slide-out-down khi không hover */
+    }
 }
