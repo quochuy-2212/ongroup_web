@@ -1,6 +1,6 @@
 import ImageTag from '@/components/ImageTag/ImageTag';
 import SlickSlider from '@/components/SlickSlider/SlickSlider';
-import Title from '@/components/Title';
+import Title from '@/components/Title/Title';
 import { enviro_ongroup_data } from '@/data/enviro-ongroup';
 import React from 'react';
 

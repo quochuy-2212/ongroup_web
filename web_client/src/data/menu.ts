@@ -69,28 +69,28 @@ export const menu_data: IMenu[] = [
             {
                 text: 'Công ty thành viên',
                 get href() {
-                    return ConvertSlug(this.text);
+                    return `/tin-tuc-su-kien/${ConvertSlug(this.text)}`;
                 },
                 menu_sub: [],
             },
             {
                 text: 'Hợp tác - Tài trợ',
                 get href() {
-                    return ConvertSlug(this.text);
+                    return `/tin-tuc-su-kien/${ConvertSlug(this.text)}`;
                 },
                 menu_sub: [],
             },
             {
                 text: 'On Group',
                 get href() {
-                    return ConvertSlug(this.text);
+                    return `/tin-tuc-su-kien/${ConvertSlug(this.text)}`;
                 },
                 menu_sub: [],
             },
             {
                 text: 'Thông tin báo chí',
                 get href() {
-                    return ConvertSlug(this.text);
+                    return `/tin-tuc-su-kien/${ConvertSlug(this.text)}`;
                 },
                 menu_sub: [],
             },

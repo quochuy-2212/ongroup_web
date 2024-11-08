@@ -1,7 +1,7 @@
 import Button from '@/components/Button/Button';
 import ImageTag from '@/components/ImageTag/ImageTag';
 import SlickSlider from '@/components/SlickSlider/SlickSlider';
-import Title from '@/components/Title';
+import Title from '@/components/Title/Title';
 import { member_company_data } from '@/data/member-company';
 import React from 'react';
 

@@ -2,8 +2,7 @@ import ImageTag from '@/components/ImageTag/ImageTag';
 import SlickSlider from '@/components/SlickSlider/SlickSlider';
 import { field_active_data } from '@/data/field-active';
 import React from 'react';
-import '../styles/style_field_active.scss';
-import Title from '@/components/Title';
+import Title from '@/components/Title/Title';
 
 const FieldActive = () => {
     return (

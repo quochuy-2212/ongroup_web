@@ -4,12 +4,11 @@ import { posts_info_press_data } from '@/data/posts-info-press';
 import { posts_member_company_data } from '@/data/posts-member-company';
 import { posts_ongroup_data } from '@/data/posts-ongroup';
 import React, { useState } from 'react';
-import '../styles/style_field_active.scss';
 import Button from '@/components/Button/Button';
 import useWindowSize from '@/hooks/useWindowSize';
 import SlickSlider from '@/components/SlickSlider/SlickSlider';
 import Post from '@/components/Post/Post';
-import Title from '@/components/Title';
+import Title from '@/components/Title/Title';
 
 const NewsEvent = () => {
     const [tagCurrent, setTagCurrent] = useState<number>(1);
@@ -39,7 +38,11 @@ const NewsEvent = () => {
                         ),
                     )}
                 </ul>
-                <Button href="" type="transparent" className="xl:flex hidden items-center justify-center">
+                <Button
+                    href="/tin-tuc-su-kien"
+                    type="transparent"
+                    className="xl:flex hidden items-center justify-center"
+                >
                     Xem thêm
                 </Button>
             </div>
@@ -71,7 +74,9 @@ const NewsEvent = () => {
                 <div className="">
                     <SlickSlider slidesToScroll={5} slidesToShow={5} speed={1000} arrows={false} dots={true}>
                         {postsData[tagCurrent - 1].map((post) => (
-                            <Post key={post.id} data_post={post} />
+                            <div key={post.id} className="p-4">
+                                <Post key={post.id} data_post={post} />
+                            </div>
                         ))}
                     </SlickSlider>
                 </div>

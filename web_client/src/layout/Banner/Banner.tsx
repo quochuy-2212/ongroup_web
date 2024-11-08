@@ -11,7 +11,7 @@ const Banner = () => {
         <>
             {width <= 768 && <Header />}
             <div
-                className={`w-full ${width <= 768 ? 'pt-[400px]' : 'pt-[600px]'} relative
+                className={`w-full ${width < 768 ? 'pt-[400px]' : 'pt-[600px]'} relative
                             bg-[url('https://ongroup.com.vn/wp-content/uploads/2024/03/adobestock_308909064-1-1-%E2%80%93-Da-sua.png')] 
                             bg-no-repeat bg-cover bg-center`}
             >

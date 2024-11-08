@@ -2,7 +2,7 @@
 import Button from '@/components/Button/Button';
 import ImageTag from '@/components/ImageTag/ImageTag';
 import Modal from '@/components/Modal/Modal';
-import Title from '@/components/Title';
+import Title from '@/components/Title/Title';
 import { member_company_data } from '@/data/member-company';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
