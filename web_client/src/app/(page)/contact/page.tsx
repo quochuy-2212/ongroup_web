@@ -77,7 +77,7 @@ const ContactPage = () => {
                             <p className="flex gap-2 items-center font-semibold text-[var(--color-primary)]">
                                 <HiOutlineLocationMarker /> <span>Văn phòng Hồ Chí Minh</span>
                             </p>
-                            <p className="text-red-500">
+                            <p className="text-red-500 underline">
                                 Số 45 Đinh Thị Thi, Hiệp Bình Phước, Thành Phố Thủ Đức, Thành Phố Hồ Chí Minh, Việt Nam
                                 (KDT Vạn Phúc).
                             </p>
