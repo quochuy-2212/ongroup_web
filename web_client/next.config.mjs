@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['ongroup.com.vn', 'onlead.vn'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ongroup.com.vn',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'onlead.vn',
+        pathname: '/**',
+      },
+    ],
   },
 
   async rewrites() {

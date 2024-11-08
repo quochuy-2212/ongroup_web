@@ -1,5 +1,6 @@
 'use client';
 import ImageTag from '@/components/ImageTag/ImageTag';
+import useScrollPosition from '@/hooks/useScrollPosition';
 import useWindowSize from '@/hooks/useWindowSize';
 import React, { useRef, useState } from 'react';
 import { FaCircleNotch, FaSearch } from 'react-icons/fa';
@@ -9,6 +10,7 @@ const Search = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [isValue, setIsValue] = useState<boolean>(false);
     const { width } = useWindowSize();
+    const { scrollY } = useScrollPosition();
 
     const handleChangeValue = () => {
         setLoading(inputRef?.current?.value === '' ? false : true);
