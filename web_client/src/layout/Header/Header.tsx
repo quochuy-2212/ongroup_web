@@ -18,13 +18,13 @@ const Header = () => {
         toggleMenu();
     };
     return (
-        <div className="w-full flex justify-between items-center fixed bg-[var(--color-primary)] xl:bg-transparent xl:absolute top-0 right-0 p-4 z-40">
+        <div className="w-full flex justify-between items-center fixed bg-[var(--color-primary)] xl:bg-transparent xl:absolute top-0 right-0 p-4 z-20">
             <FaBars color="white" size={30} onClick={handleClickMenu} className="cursor-pointer " />
             {width >= 1023 && scrollY >= 600 && (
                 <FaBars
                     size={30}
                     onClick={handleClickMenu}
-                    className="cursor-pointer fixed top-5 left-5 text-[var(--color-primary)] z-50"
+                    className="cursor-pointer fixed top-5 left-5 text-[var(--color-primary)] z-20"
                 />
             )}
             <Search />

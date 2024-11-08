@@ -26,7 +26,7 @@ const IntroCompany = () => {
                 />
             </Link>
             <div className="flex gap-10 justify-center">
-                <Button href="" type="primary" className="min-w-48 border-none">
+                <Button href="/ve-chung-toi" type="primary" className="min-w-48 border-none">
                     Về chúng tôi
                 </Button>
             </div>

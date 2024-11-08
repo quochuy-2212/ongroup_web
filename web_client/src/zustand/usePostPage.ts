@@ -8,7 +8,7 @@ interface IPostPage {
     setCurrentPage: (value: number) => void;
     setTotalPages: (value: number) => void;
 }
-const postsPerPageDefault: number = 2;
+const postsPerPageDefault: number = 10;
 
 const usePostPage = create<IPostPage>((set) => ({
     postsPerPage: postsPerPageDefault,

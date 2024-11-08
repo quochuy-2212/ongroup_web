@@ -3,6 +3,13 @@ import { ConvertSlug } from '@/util/ConvertSlug';
 
 export const menu_data: IMenu[] = [
     {
+        text: 'Trang chủ',
+        get href() {
+            return '/';
+        },
+        menu_sub: [],
+    },
+    {
         text: 'Về chúng tôi',
         get href() {
             return ConvertSlug(this.text);

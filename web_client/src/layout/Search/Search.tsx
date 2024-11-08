@@ -1,5 +1,6 @@
 'use client';
 import ImageTag from '@/components/ImageTag/ImageTag';
+import useWindowSize from '@/hooks/useWindowSize';
 import React, { useRef, useState } from 'react';
 import { FaCircleNotch, FaSearch } from 'react-icons/fa';
 
@@ -7,6 +8,8 @@ const Search = () => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [isValue, setIsValue] = useState<boolean>(false);
+    const { width } = useWindowSize();
+
     const handleChangeValue = () => {
         setLoading(inputRef?.current?.value === '' ? false : true);
         setIsValue(inputRef?.current?.value === '' ? false : true);
@@ -24,11 +27,16 @@ const Search = () => {
         setIsValue(false);
     };
     return (
-        <div className="bg-[hsla(0,0%,100%,.2)] py-2 px-4 rounded-full flex items-center relative">
+        <div className="bg-[hsla(0,0%,100%,.2)] py-2 px-4 rounded-full flex items-center relative shadow-2xl ">
             <input
                 ref={inputRef}
                 placeholder="Tìm kiếm..."
-                className="bg-transparent text-[var(--text-color-secondary)] outline-none"
+                className={`bg-transparent  outline-none 
+                    ${
+                        scrollY > 600 && width >= 1023
+                            ? 'text-[var(--color-primary)] '
+                            : 'text-[var(--text-color-secondary)]'
+                    }`}
                 onChange={handleChangeValue}
                 onFocus={handleFocus}
                 onBlur={handleBlur}

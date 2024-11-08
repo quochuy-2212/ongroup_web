@@ -19,7 +19,7 @@ const NewsEvent = () => {
     return (
         <div className="container m-auto pt-16 overflow-hidden space-y-5 pb-8">
             <Title title="tin tức & sự kiện" />
-            <Button href="" type="transparent" className="flex xl:hidden items-center justify-center">
+            <Button href="/tin-tuc-su-kien" type="transparent" className="flex xl:hidden items-center justify-center">
                 Xem thêm
             </Button>
             <div className="xl:flex xl:justify-between xl:items-center border-b-2 border-[var(--color-primary)] border-solid">
@@ -49,20 +49,38 @@ const NewsEvent = () => {
 
             {/* Begin Slider post desktop */}
             {width >= 1023 && (
-                <div
-                    className=" flex transition-transform duration-700 ease-in-out"
-                    style={{
-                        transform: `translateX(-${(tagCurrent - 1) * 100}vw)`,
-                        width: `${postsData.length * 100}vw`,
-                    }}
-                >
+                // <div
+                //     className=" flex transition-transform duration-700 ease-in-out"
+                //     style={{
+                //         transform: `translateX(-${(tagCurrent - 1) * 200}vw)`,
+                //         width: `${postsData.length * 200}vw`,
+                //     }}
+                // >
+                //     {postsData.map((posts, idx) => (
+                //         <div key={idx} className="flex flex-col gap-5">
+                //             <div className="flex gap-5 w-full p-4">
+                //                 {posts.map((post) => (
+                //                     <Post key={post.id} data_post={post} />
+                //                 ))}
+                //             </div>
+                //         </div>
+                //     ))}
+                // </div>
+                <div className="w-full">
                     {postsData.map((posts, idx) => (
-                        <div key={idx} className="flex flex-col gap-5">
-                            <div className="flex gap-5 w-full p-4">
+                        <div
+                            key={idx}
+                            className={`${
+                                tagCurrent == idx + 1 ? ' scale-100 h-auto opacity-100' : 'h-0 scale-0 opacity-0'
+                            } transition-all duration-700 flex flex-col gap-5 w-full`}
+                        >
+                            <SlickSlider slidesToScroll={4} slidesToShow={4} speed={1000} arrows={false} dots={false}>
                                 {posts.map((post) => (
-                                    <Post key={post.id} data_post={post} />
+                                    <div key={post.id} className="p-5">
+                                        <Post key={post.id} data_post={post} />
+                                    </div>
                                 ))}
-                            </div>
+                            </SlickSlider>
                         </div>
                     ))}
                 </div>

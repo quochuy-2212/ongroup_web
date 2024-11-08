@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['ongroup.com.vn'],
+    domains: ['ongroup.com.vn', 'onlead.vn'],
   },
 
   async rewrites() {
@@ -33,6 +33,14 @@ const nextConfig = {
       {
         source: '/cong-dong-xa-hoi',
         destination: '/social-impact'
+      },
+      {
+        source: '/tuyen-dung',
+        destination: '/recruitment'
+      },
+      {
+        source: '/lien-he',
+        destination: '/contact'
       },
       {
         source: '/tin-tuc-su-kien',
