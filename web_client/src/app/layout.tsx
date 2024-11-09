@@ -25,9 +25,9 @@ export const metadata: Metadata = {
         type: 'website',
         images: [
             {
-                url: 'https://ongroup-web.vercel.app/_next/image?url=https%3A%2F%2Fongroup.com.vn%2Fwp-content%2Fuploads%2F2024%2F03%2Fongroupf.png&w=384&q=75g', // URL hình ảnh khi chia sẻ link
-                width: 800,
-                height: 600,
+                url: 'https://ongroup-web.vercel.app/images/ongroupf.png',
+                width: 1080,
+                height: 720,
                 alt: 'Tập đoàn On Group',
             },
         ],
