@@ -1,18 +1,17 @@
 'use client';
 
 import Post from '@/components/Post/Post';
-import usePostPage from '@/zustand/usePostPage';
+import usePostPageStore from '@/zustand/usePostPageStore';
 import { useParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { data_pathName, typeDataPosts, typeNewsTitle } from '../data/typeNews';
 import Link from 'next/link';
 
 const PostAll = () => {
-    const { currentPage, postsPerPage, totalPages, setTotalPages } = usePostPage();
+    const { currentPage, postsPerPage, totalPages, setTotalPages } = usePostPageStore();
 
     const typeNewsParams = useParams<{ typeNews: string; pagination: string }>();
-    console.log(typeNewsParams.typeNews);
-    console.log(typeNewsParams.pagination);
+
     let index_data = 0;
     switch (typeNewsParams.typeNews) {
         case undefined:

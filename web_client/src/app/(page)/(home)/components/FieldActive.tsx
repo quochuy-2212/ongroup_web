@@ -1,12 +1,35 @@
+'use client';
 import ImageTag from '@/components/ImageTag/ImageTag';
 import SlickSlider from '@/components/SlickSlider/SlickSlider';
 import { field_active_data } from '@/data/field-active';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Title from '@/components/Title/Title';
+import { useSizeComponentStore } from '@/zustand/useSizeComponentStore';
 
-const FieldActive = () => {
+const FieldActive = ({ keyName }: { keyName: string }) => {
+    const elementRef = useRef<HTMLDivElement>(null);
+    const { setSize: setSizeInStore } = useSizeComponentStore();
+    useEffect(() => {
+        if (elementRef.current) {
+            const width = elementRef.current.offsetWidth;
+            const height = elementRef.current.offsetHeight;
+            setSizeInStore(keyName, { width, height });
+        }
+        const handleResize = () => {
+            if (elementRef.current) {
+                const width = elementRef.current.offsetWidth;
+                const height = elementRef.current.offsetHeight;
+                setSizeInStore(keyName, { width, height });
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
-        <div className="container m-auto">
+        <div ref={elementRef} className={` container m-auto `}>
             <Title
                 title=" lĩnh vực hoạt động"
                 sub_title=" Với thể mạnh là Công Nghệ và Marketing, Ongroup đã phát triển hệ sinh thái đa lĩnh vực, thực tế áp

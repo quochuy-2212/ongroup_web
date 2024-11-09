@@ -14,7 +14,6 @@ const Header = () => {
 
     const { toggleMenu } = useMenuStore();
     const handleClickMenu = () => {
-        console.log('huy');
         toggleMenu();
     };
     return (

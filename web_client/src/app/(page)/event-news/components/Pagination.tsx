@@ -1,14 +1,14 @@
 'use client';
 
-import usePostPage from '@/zustand/usePostPage';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import { data_pathName } from '../data/typeNews';
+import usePostPageStore from '@/zustand/usePostPageStore';
 
 const Pagination = () => {
-    const { currentPage, totalPages, setCurrentPage } = usePostPage();
+    const { currentPage, totalPages, setCurrentPage } = usePostPageStore();
 
     const typeNewsParams = useParams<{ typeNews: string; pagination: string }>();
 

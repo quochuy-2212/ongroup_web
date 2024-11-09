@@ -10,7 +10,7 @@ interface IPostPage {
 }
 const postsPerPageDefault: number = 10;
 
-const usePostPage = create<IPostPage>((set) => ({
+const usePostPageStore = create<IPostPage>((set) => ({
     postsPerPage: postsPerPageDefault,
     totalPages: Math.ceil(posts_all_data.length / postsPerPageDefault),
     currentPage: 1,
@@ -18,4 +18,4 @@ const usePostPage = create<IPostPage>((set) => ({
     setTotalPages: (value) => set({ totalPages: value }),
 }));
 
-export default usePostPage;
+export default usePostPageStore;

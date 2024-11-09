@@ -1,15 +1,29 @@
-import CompanyNumber from './components/CompanyNumber';
-import EnvirOngroup from './components/EnvirOngroup';
+import LazyLoadComponent from '@/components/LazyLoad/LazyLoad';
 import FieldActive from './components/FieldActive';
+import CompanyNumber from './components/CompanyNumber';
 import NewsEvent from './components/NewsEvent';
+import EnvirOngroup from './components/EnvirOngroup';
 
-export default function HomePage() {
+const HomePage: React.FC = () => {
     return (
-        <div className="">
-            <FieldActive />
-            <CompanyNumber />
-            <NewsEvent />
-            <EnvirOngroup />
+        <div>
+            <LazyLoadComponent>
+                <FieldActive keyName="FieldActive" />
+            </LazyLoadComponent>
+
+            <LazyLoadComponent>
+                <CompanyNumber keyName="CompanyNumber" />
+            </LazyLoadComponent>
+
+            <LazyLoadComponent>
+                <NewsEvent keyName="NewsEvent" />
+            </LazyLoadComponent>
+
+            <LazyLoadComponent>
+                <EnvirOngroup />
+            </LazyLoadComponent>
         </div>
     );
-}
+};
+
+export default HomePage;
