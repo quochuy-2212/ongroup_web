@@ -41,7 +41,7 @@ const ContactPage = () => {
                 />
                 <div className=" p-2 rounded-md space-y-10">
                     <h2 className="text-3xl xl:text-5xl text-center font-black text-[var(--color-primary)]">
-                        Chúng tôi có thể giúp gì cho bạn ?
+                        Chúng tôi có thể giúp gì cho bạn
                     </h2>
                     <div className="space-y-10">
                         <div className=" space-y-3 ">
