@@ -42,7 +42,7 @@ const CompanyNumber = ({ keyName }: { keyName: string }) => {
     return (
         <div
             ref={elementRef}
-            className={`transition-all duration-500 ${
+            className={`transition-all duration-700 ${
                 scrollY > currentSizeHeight ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
             } space-y-5 pt-16 container m-auto `}
         >

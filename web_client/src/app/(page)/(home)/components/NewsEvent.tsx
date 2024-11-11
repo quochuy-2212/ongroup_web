@@ -49,8 +49,8 @@ const NewsEvent = ({ keyName }: { keyName: string }) => {
     return (
         <div
             ref={elementRef}
-            className={`transition-all duration-500 overflow-hidden ${
-                scrollY > currentSizeHeight ? 'h-auto opacity-100' : 'max-h-0 opacity-0'
+            className={`transition-all duration-700 overflow-hidden ${
+                scrollY > currentSizeHeight ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
             } container m-auto pt-16 overflow-hidden space-y-5 pb-8`}
         >
             <Title title="tin tức & sự kiện" />

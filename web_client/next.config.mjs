@@ -50,6 +50,10 @@ const nextConfig = {
         destination: '/recruitment'
       },
       {
+        source: '/tuyen-dung/:detail',
+        destination: '/recruitment/:detail'
+      },
+      {
         source: '/lien-he',
         destination: '/contact'
       },

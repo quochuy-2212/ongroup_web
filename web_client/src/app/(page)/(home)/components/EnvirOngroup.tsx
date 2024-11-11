@@ -25,8 +25,8 @@ const EnvirOngroup = () => {
     return (
         <div
             ref={elementRef}
-            className={`transition-all duration-500 ${
-                scrollY > currentSizeHeight ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
+            className={`transition-all duration-700 ${
+                scrollY > currentSizeHeight ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
             }pt-16`}
         >
             <Title title=" Môi trường tại On group" />
